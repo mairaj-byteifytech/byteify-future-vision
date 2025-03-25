@@ -1,5 +1,9 @@
+
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
+import Button from "../components/ui/Button";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,14 +16,31 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      
+      <main className="flex-grow flex items-center justify-center">
+        <div className="byteify-container text-center py-20">
+          <div className="mb-8">
+            <div className="inline-block relative">
+              <div className="text-9xl font-bold text-byteify-dark">404</div>
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-byteify-accent rounded-full animate-pulse"></div>
+              <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-byteify-accent rounded-sm animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+            </div>
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Page Not Found</h1>
+          <p className="text-xl text-byteify-gray mb-8 max-w-md mx-auto">
+            The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+          </p>
+          <div className="flex justify-center">
+            <Button size="lg" onClick={() => window.location.href = "/"}>
+              Return to Home
+            </Button>
+          </div>
+        </div>
+      </main>
+      
+      <Footer />
     </div>
   );
 };
