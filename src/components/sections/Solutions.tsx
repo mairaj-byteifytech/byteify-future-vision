@@ -1,7 +1,6 @@
-
 import React from 'react';
+import { Button } from '../ui/button';
 import { Zap, Smartphone, Globe, Code, Database, ShieldCheck } from 'lucide-react';
-import Button from '../ui/Button';
 
 const Solutions = () => {
   const solutions = [

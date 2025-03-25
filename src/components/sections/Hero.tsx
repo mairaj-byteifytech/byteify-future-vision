@@ -1,6 +1,5 @@
-
 import React, { useEffect, useRef } from 'react';
-import Button from '../ui/Button';
+import { Button } from '../ui/button';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);

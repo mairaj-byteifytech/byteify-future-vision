@@ -1,6 +1,5 @@
-
-import React, { useState } from 'react';
-import Button from '../ui/Button';
+import React from 'react';
+import { Button } from '../ui/button';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const CaseStudies = () => {

@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
@@ -6,7 +5,7 @@ import Hero from '../components/sections/Hero';
 import Solutions from '../components/sections/Solutions';
 import About from '../components/sections/About';
 import CaseStudies from '../components/sections/CaseStudies';
-import Button from '../components/ui/Button';
+import { Button } from '../components/ui/button';
 
 const Index = () => {
   // Smooth scroll for anchor links
