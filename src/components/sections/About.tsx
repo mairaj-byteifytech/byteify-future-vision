@@ -1,7 +1,85 @@
-import React from 'react';
+
+import React, { useEffect, useRef } from 'react';
 import { Button } from '../ui/button';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const About = () => {
+  const timelineRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Timeline animations
+    if (timelineRef.current) {
+      const timelineItems = timelineRef.current.querySelectorAll('.timeline-item');
+      
+      timelineItems.forEach((item, index) => {
+        gsap.fromTo(
+          item,
+          { 
+            opacity: 0, 
+            y: 30,
+          },
+          { 
+            opacity: 1, 
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            },
+            delay: index * 0.1
+          }
+        );
+        
+        // Animate the timeline dot
+        const dot = item.querySelector('.timeline-dot');
+        if (dot) {
+          gsap.fromTo(
+            dot,
+            { scale: 0 },
+            { 
+              scale: 1, 
+              duration: 0.5, 
+              ease: "back.out(1.7)",
+              scrollTrigger: {
+                trigger: item,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              },
+              delay: index * 0.1 + 0.2
+            }
+          );
+        }
+      });
+      
+      // Animate the timeline line
+      const timelineLine = timelineRef.current.querySelector('.timeline-line');
+      if (timelineLine) {
+        gsap.fromTo(
+          timelineLine,
+          { scaleY: 0 },
+          { 
+            scaleY: 1, 
+            duration: 1.5, 
+            ease: "power2.out",
+            transformOrigin: "top center",
+            scrollTrigger: {
+              trigger: timelineLine,
+              start: "top 80%",
+              end: "bottom 20%",
+              scrub: 0.5
+            }
+          }
+        );
+      }
+    }
+  }, []);
+
   const milestones = [
     {
       year: '2014',
@@ -103,29 +181,51 @@ const About = () => {
         {/* Timeline */}
         <div className="mb-20">
           <h3 className="text-2xl font-bold text-center mb-12">Our Journey</h3>
-          <div className="relative">
+          <div className="relative" ref={timelineRef}>
             {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gray-200 hidden md:block"></div>
+            <div className="timeline-line absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-byteify-accent via-blue-400 to-purple-500 hidden md:block origin-top"></div>
             
-            <div className="space-y-12">
+            <div className="space-y-16">
               {milestones.map((milestone, index) => (
-                <div key={index} className="relative">
-                  {/* Timeline dot */}
-                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-byteify-accent rounded-full"></div>
+                <div key={index} className={`timeline-item relative ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                  {/* Timeline dot with year */}
+                  <div className="timeline-dot hidden md:block absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white rounded-full shadow-lg border-2 border-byteify-accent flex items-center justify-center z-10 hover:scale-110 transition-transform cursor-pointer">
+                    <span className="text-sm font-bold bg-gradient-to-r from-byteify-accent to-blue-500 bg-clip-text text-transparent">
+                      {milestone.year}
+                    </span>
+                  </div>
                   
-                  <div className={`md:flex ${index % 2 === 0 ? '' : 'md:flex-row-reverse'} items-center`}>
-                    <div className="md:w-1/2 p-4"></div>
-                    <div className={`md:w-1/2 p-4 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                      <div className="inline-block px-3 py-1 bg-byteify-accent/20 rounded-full text-sm font-medium text-byteify-dark mb-2">
-                        {milestone.year}
+                  <div className={`md:flex ${index % 2 === 0 ? '' : 'md:flex-row-reverse'} items-center group`}>
+                    <div className="md:w-1/2 p-6">
+                      <div className={`glass-card p-6 rounded-xl shadow-xl md:mr-${index % 2 === 0 ? '10' : '0'} md:ml-${index % 2 === 0 ? '0' : '10'} hover:shadow-2xl transition-all group-hover:bg-white/95 group-hover:-translate-y-1 duration-300`}>
+                        <div className="md:hidden mb-3 inline-block px-3 py-1 bg-byteify-accent/20 rounded-full text-sm font-medium text-byteify-dark">
+                          {milestone.year}
+                        </div>
+                        <h4 className="text-xl font-bold mb-3 border-b pb-2 border-gray-100">
+                          {milestone.title}
+                        </h4>
+                        <p className="text-byteify-gray">{milestone.description}</p>
+                        
+                        {/* Interactive element on hover */}
+                        <div className="mt-4 h-1 w-0 group-hover:w-full bg-gradient-to-r from-byteify-accent to-blue-400 transition-all duration-700 rounded-full"></div>
                       </div>
-                      <h4 className="text-xl font-bold mb-2">{milestone.title}</h4>
-                      <p className="text-byteify-gray">{milestone.description}</p>
                     </div>
+                    <div className="md:w-1/2"></div>
                   </div>
                 </div>
               ))}
             </div>
+          </div>
+          
+          {/* Interactive call-to-action for timeline */}
+          <div className="text-center mt-8">
+            <Button 
+              className="group relative overflow-hidden" 
+              size="lg"
+            >
+              <span className="relative z-10">Explore Our Full History</span>
+              <span className="absolute bottom-0 left-0 w-full h-0 group-hover:h-full bg-byteify-accent/80 transition-all duration-300 -z-0"></span>
+            </Button>
           </div>
         </div>
 
