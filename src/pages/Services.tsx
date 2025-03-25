@@ -1,93 +1,19 @@
-
 import React from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import { motion } from 'framer-motion';
-import { Bot, Code, Database, Briefcase, Zap, Globe, Server, Shield, BarChart } from 'lucide-react';
+import Hero from '../components/sections/Hero';
+import Solutions from '../components/sections/Solutions';
+import About from '../components/sections/About';
+import CaseStudies from '../components/sections/CaseStudies';
+import CallToAction from '../components/sections/CallToAction';
 import { Button } from '../components/ui/button';
 
 const Services = () => {
-  const aiServices = [
-    {
-      icon: Bot,
-      title: 'Agentic AI',
-      description: 'Autonomous AI agents that act on your behalf to solve complex problems and make intelligent decisions.',
-    },
-    {
-      icon: Zap,
-      title: 'AI-Powered Applications',
-      description: 'Custom applications that leverage machine learning and natural language processing to deliver intelligent functionality.',
-    },
-    {
-      icon: BarChart,
-      title: 'Predictive Analytics',
-      description: 'Advanced predictive models that analyze historical data to forecast future trends and outcomes.',
-    }
-  ];
-
-  const developmentServices = [
-    {
-      icon: Code,
-      title: 'Full-Stack Development',
-      description: 'End-to-end development services for web and mobile applications using the latest technologies and frameworks.',
-    },
-    {
-      icon: Server,
-      title: 'Cloud Solutions',
-      description: 'Scalable, secure cloud-based applications and infrastructure tailored to your specific business needs.',
-    },
-    {
-      icon: Globe,
-      title: 'Mobile Applications',
-      description: 'Native and cross-platform mobile applications that provide seamless experiences across all devices.',
-    }
-  ];
-
-  const enterpriseServices = [
-    {
-      icon: Database,
-      title: 'Custom CRM Systems',
-      description: 'Tailored customer relationship management solutions designed to optimize your sales and service processes.',
-    },
-    {
-      icon: Briefcase,
-      title: 'Enterprise Portals',
-      description: 'Secure, scalable portals that streamline communication, collaboration, and data sharing across your organization.',
-    },
-    {
-      icon: Shield,
-      title: 'Workflow Automation',
-      description: 'AI-driven automation solutions that eliminate repetitive tasks and optimize complex business processes.',
-    }
-  ];
-
-  const caseStudies = [
-    {
-      title: 'AI-Powered CRM for Global Financial Firm',
-      category: 'Financial Services',
-      description: 'Developed a custom CRM with AI-driven insights that increased sales productivity by 40% and improved customer retention by 25%.',
-      result: '40% increase in productivity',
-    },
-    {
-      title: 'Automated Workflow System for Healthcare Provider',
-      category: 'Healthcare',
-      description: 'Implemented an intelligent workflow automation system that reduced administrative time by 60% and improved patient care coordination.',
-      result: '60% reduction in administrative time',
-    },
-    {
-      title: 'Mobile App for Retail Chain with Predictive Analytics',
-      category: 'Retail',
-      description: 'Created a customer-facing mobile application with predictive inventory management, resulting in 35% higher customer satisfaction and 20% reduced stock-outs.',
-      result: '35% higher customer satisfaction',
-    }
-  ];
-
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       
       <main className="flex-grow">
-        {/* Hero Section */}
         <section className="relative bg-byteify-dark text-white py-24 overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-0 left-0 w-64 h-64 bg-byteify-accent rounded-full filter blur-3xl animate-pulse-subtle"></div>
@@ -95,192 +21,132 @@ const Services = () => {
           </div>
           <div className="byteify-container relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Our Services & Solutions</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Our Services</h1>
               <p className="text-xl md:text-2xl mb-10 text-white/80">
-                Cutting-edge AI and software solutions tailored to your business challenges.
+                Explore our comprehensive suite of AI and software development services designed to drive innovation and growth for your business.
               </p>
+              <Button size="lg" variant="primary" className="mt-8">Get Started Today</Button>
             </div>
           </div>
         </section>
 
-        {/* AI Solutions */}
-        <section className="section-padding bg-white">
+        <section className="section-padding">
           <div className="byteify-container">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className="inline-block px-3 py-1 bg-byteify-accent/20 rounded-full text-sm font-medium text-byteify-dark mb-4">
-                AI Solutions
-              </div>
-              <h2 className="section-title">Intelligent AI Technologies</h2>
+              <h2 className="section-title">AI Solutions</h2>
               <p className="section-subtitle">
-                Harness the power of artificial intelligence to transform your business operations and customer experiences.
+                Harness the power of artificial intelligence to optimize your business processes, gain actionable insights, and create new opportunities.
               </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {aiServices.map((service, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-300"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-8">
-                    <div className="bg-byteify-accent/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                      <service.icon className="h-8 w-8 text-byteify-accent-dark" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                    <p className="text-byteify-gray mb-6">{service.description}</p>
-                    <a href="#" className="text-byteify-dark font-medium hover:text-byteify-accent-dark flex items-center">
-                      Learn more
-                      <svg className="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* AI Solutions Cards */}
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                <div className="aspect-w-16 aspect-h-9">
+                  <img
+                    src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?fit=crop&w=800&h=450"
+                    alt="AI Consulting"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">AI Consulting</h3>
+                  <p className="text-byteify-gray text-sm">
+                    Strategic guidance to identify and implement AI solutions tailored to your specific business needs.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                <div className="aspect-w-16 aspect-h-9">
+                  <img
+                    src="https://images.unsplash.com/photo-1518770660439-464c4c690144?fit=crop&w=800&h=450"
+                    alt="Machine Learning"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">Machine Learning</h3>
+                  <p className="text-byteify-gray text-sm">
+                    Custom machine learning models to automate tasks, predict outcomes, and improve decision-making.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                <div className="aspect-w-16 aspect-h-9">
+                  <img
+                    src="https://images.unsplash.com/photo-1542831323-539828069470?fit=crop&w=800&h=450"
+                    alt="Natural Language Processing"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">Natural Language Processing</h3>
+                  <p className="text-byteify-gray text-sm">
+                    Advanced NLP solutions to understand and generate human language for chatbots, content analysis, and more.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="text-center mt-12">
+              <Button size="lg" variant="primary" className="mt-4">View All Services</Button>
             </div>
           </div>
         </section>
 
-        {/* Development Services */}
         <section className="section-padding bg-gray-50">
           <div className="byteify-container">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className="inline-block px-3 py-1 bg-byteify-accent/20 rounded-full text-sm font-medium text-byteify-dark mb-4">
-                Development Services
-              </div>
-              <h2 className="section-title">Custom Software Development</h2>
+              <h2 className="section-title">Software Development</h2>
               <p className="section-subtitle">
-                End-to-end development services for web, mobile, and enterprise applications that drive business growth.
+                Custom software solutions designed to meet your unique business requirements and drive digital transformation.
               </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {developmentServices.map((service, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-300"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-8">
-                    <div className="bg-byteify-accent/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                      <service.icon className="h-8 w-8 text-byteify-accent-dark" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                    <p className="text-byteify-gray mb-6">{service.description}</p>
-                    <a href="#" className="text-byteify-dark font-medium hover:text-byteify-accent-dark flex items-center">
-                      Learn more
-                      <svg className="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Enterprise Solutions */}
-        <section className="section-padding bg-white">
-          <div className="byteify-container">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className="inline-block px-3 py-1 bg-byteify-accent/20 rounded-full text-sm font-medium text-byteify-dark mb-4">
-                Enterprise Solutions
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Software Development Cards */}
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                <div className="aspect-w-16 aspect-h-9">
+                  <img
+                    src="https://images.unsplash.com/photo-1517245386804-bb43f63fb1ee?fit=crop&w=800&h=450"
+                    alt="Web Application Development"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">Web Application Development</h3>
+                  <p className="text-byteify-gray text-sm">
+                    Scalable and secure web applications built with the latest technologies to enhance user experience and drive business growth.
+                  </p>
+                </div>
               </div>
-              <h2 className="section-title">Enterprise-Grade Applications</h2>
-              <p className="section-subtitle">
-                Scalable, secure, and customizable solutions designed to optimize your business operations.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {enterpriseServices.map((service, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-300"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-8">
-                    <div className="bg-byteify-accent/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                      <service.icon className="h-8 w-8 text-byteify-accent-dark" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                    <p className="text-byteify-gray mb-6">{service.description}</p>
-                    <a href="#" className="text-byteify-dark font-medium hover:text-byteify-accent-dark flex items-center">
-                      Learn more
-                      <svg className="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Case Studies */}
-        <section className="section-padding bg-byteify-dark text-white">
-          <div className="byteify-container">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="section-title">Success Stories</h2>
-              <p className="section-subtitle text-white/80">
-                See how our solutions have transformed businesses across industries.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {caseStudies.map((caseStudy, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-8"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="text-byteify-accent font-medium text-sm mb-4">{caseStudy.category}</div>
-                  <h3 className="text-xl font-bold mb-4">{caseStudy.title}</h3>
-                  <p className="text-white/80 mb-6">{caseStudy.description}</p>
-                  <div className="bg-byteify-accent/20 px-4 py-3 rounded-lg text-byteify-accent font-bold">
-                    {caseStudy.result}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="text-center mt-12">
-              <Button size="lg" variant="default" className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light">
-                View All Case Studies
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Call to Action */}
-        <section className="section-padding bg-gradient-to-r from-byteify-dark to-byteify-darker text-white">
-          <div className="byteify-container text-center max-w-3xl mx-auto">
-            <h2 className="section-title mb-6">Ready to Transform Your Business?</h2>
-            <p className="text-lg mb-10 text-white/80">
-              Get in touch with our team to discuss how our AI-powered solutions can address your unique business challenges.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" variant="default" className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light">
-                Schedule a Consultation
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
-                Contact Sales
-              </Button>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                <div className="aspect-w-16 aspect-h-9">
+                  <img
+                    src="https://images.unsplash.com/photo-1555057326-41c388c7c454?fit=crop&w=800&h=450"
+                    alt="Mobile App Development"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">Mobile App Development</h3>
+                  <p className="text-byteify-gray text-sm">
+                    Native and cross-platform mobile apps for iOS and Android to reach your customers on the go.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                <div className="aspect-w-16 aspect-h-9">
+                  <img
+                    src="https://images.unsplash.com/photo-1583508915404-24c824541f27?fit=crop&w=800&h=450"
+                    alt="Enterprise Software Solutions"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">Enterprise Software Solutions</h3>
+                  <p className="text-byteify-gray text-sm">
+                    Custom enterprise software to streamline operations, improve collaboration, and enhance productivity.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

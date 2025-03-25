@@ -15,7 +15,7 @@ const CareersHero = () => {
           <p className="text-xl md:text-2xl mb-10 text-white/80">
             Build the future of AI and software solutions with talented individuals from around the world.
           </p>
-          <Button size="lg" variant="default" className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light">
+          <Button size="lg" variant="primary" className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light">
             View Open Positions
           </Button>
         </div>

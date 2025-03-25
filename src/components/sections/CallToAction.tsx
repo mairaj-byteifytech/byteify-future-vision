@@ -18,7 +18,7 @@ const CallToAction = () => {
             Get in touch with our team to discover how Byteify's innovative AI solutions can drive growth, efficiency, and competitive advantage for your organization.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" variant="default" className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light">
+            <Button size="lg" variant="primary" className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light">
               Schedule a Demo
             </Button>
             <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">

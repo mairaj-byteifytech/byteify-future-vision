@@ -11,7 +11,7 @@ const CareersCTA = () => {
           Join our team of innovators and help shape the future of AI and software development. Explore our open positions and apply today.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
-          <Button size="lg" variant="default" className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light">
+          <Button size="lg" variant="primary" className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light">
             View All Openings
           </Button>
           <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
