@@ -31,7 +31,7 @@ const hiringSteps = [
   {
     number: 6,
     title: 'Offer & Onboarding',
-    description: 'If selected, you'll receive an offer and begin our comprehensive onboarding process.'
+    description: "If selected, you'll receive an offer and begin our comprehensive onboarding process."
   }
 ];
 
