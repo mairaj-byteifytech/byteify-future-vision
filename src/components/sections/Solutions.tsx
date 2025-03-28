@@ -1,8 +1,12 @@
+
 import React from 'react';
 import { Button } from '../ui/button';
 import { Zap, Smartphone, Globe, Code, Database, ShieldCheck } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Solutions = () => {
+  const navigate = useNavigate();
+  
   const solutions = [
     {
       icon: Zap,
@@ -10,7 +14,8 @@ const Solutions = () => {
       description: 'Powerful AI-driven software solutions to automate tasks, analyze data, and drive business insights.',
       color: 'bg-blue-50',
       iconColor: 'text-blue-500',
-      hoverColor: 'group-hover:bg-blue-100'
+      hoverColor: 'group-hover:bg-blue-100',
+      link: '/services#ai-software'
     },
     {
       icon: Smartphone,
@@ -18,7 +23,8 @@ const Solutions = () => {
       description: 'Intelligent mobile apps that provide seamless experiences across platforms with advanced AI capabilities.',
       color: 'bg-green-50',
       iconColor: 'text-green-500',
-      hoverColor: 'group-hover:bg-green-100'
+      hoverColor: 'group-hover:bg-green-100',
+      link: '/services#mobile-apps'
     },
     {
       icon: Globe,
@@ -26,7 +32,8 @@ const Solutions = () => {
       description: 'Scale your AI solutions worldwide with our expertise in multilingual and multicultural implementations.',
       color: 'bg-purple-50',
       iconColor: 'text-purple-500',
-      hoverColor: 'group-hover:bg-purple-100'
+      hoverColor: 'group-hover:bg-purple-100',
+      link: '/services#global-solutions'
     },
     {
       icon: Code,
@@ -34,7 +41,8 @@ const Solutions = () => {
       description: 'Autonomous AI agents that act on your behalf to solve complex problems and make intelligent decisions.',
       color: 'bg-yellow-50',
       iconColor: 'text-yellow-600',
-      hoverColor: 'group-hover:bg-yellow-100'
+      hoverColor: 'group-hover:bg-yellow-100',
+      link: '/services#agentic-ai'
     },
     {
       icon: Database,
@@ -42,7 +50,8 @@ const Solutions = () => {
       description: 'Comprehensive AI infrastructure and applications designed for enterprise-scale deployment and integration.',
       color: 'bg-red-50',
       iconColor: 'text-red-500',
-      hoverColor: 'group-hover:bg-red-100'
+      hoverColor: 'group-hover:bg-red-100',
+      link: '/services#enterprise'
     },
     {
       icon: ShieldCheck,
@@ -50,7 +59,8 @@ const Solutions = () => {
       description: 'Built-in security protocols and compliance measures that protect your data and meet industry standards.',
       color: 'bg-indigo-50',
       iconColor: 'text-indigo-500',
-      hoverColor: 'group-hover:bg-indigo-100'
+      hoverColor: 'group-hover:bg-indigo-100',
+      link: '/services#security'
     }
   ];
 
@@ -80,8 +90,8 @@ const Solutions = () => {
                 <h3 className="text-xl font-bold mb-2">{solution.title}</h3>
                 <p className="text-byteify-gray mb-4">{solution.description}</p>
                 <a 
-                  href="#" 
-                  className="inline-flex items-center text-byteify-dark font-medium hover:text-byteify-accent-dark"
+                  onClick={() => navigate(solution.link)}
+                  className="inline-flex items-center text-byteify-dark font-medium hover:text-byteify-accent-dark cursor-pointer"
                 >
                   Learn more
                   <svg className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -94,7 +104,7 @@ const Solutions = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <Button>
+          <Button onClick={() => navigate('/services')}>
             View All Solutions
           </Button>
         </div>

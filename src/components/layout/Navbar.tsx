@@ -1,13 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '../ui/button';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +70,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Button 
               className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light"
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => navigate('/contact')}
             >
               Contact Us
             </Button>
@@ -111,7 +112,7 @@ const Navbar = () => {
                 className="w-full bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light"
                 onClick={() => {
                   setIsMenuOpen(false);
-                  window.location.href = '/contact';
+                  navigate('/contact');
                 }}
               >
                 Contact Us

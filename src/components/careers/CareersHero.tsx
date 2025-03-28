@@ -1,8 +1,18 @@
 
 import React from 'react';
 import { Button } from '../../components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const CareersHero = () => {
+  const navigate = useNavigate();
+  
+  const scrollToJobOpenings = () => {
+    const jobOpeningsSection = document.querySelector('.section-padding.bg-gray-50');
+    if (jobOpeningsSection) {
+      jobOpeningsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return (
     <section className="relative bg-byteify-dark text-white py-24 overflow-hidden">
       <div className="absolute inset-0 opacity-20">
@@ -15,7 +25,13 @@ const CareersHero = () => {
           <p className="text-xl md:text-2xl mb-10 text-white/80">
             Build the future of AI and software solutions with talented individuals from around the world.
           </p>
-          <Button size="lg" variant="primary" className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light">
+          <Button 
+            size="lg" 
+            variant="primary"
+
+            className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light"
+            onClick={scrollToJobOpenings}
+          >
             View Open Positions
           </Button>
         </div>

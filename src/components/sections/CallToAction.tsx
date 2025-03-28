@@ -2,8 +2,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const CallToAction = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="section-padding bg-gradient-to-r from-byteify-dark to-byteify-darker text-white">
       <div className="byteify-container text-center max-w-4xl mx-auto">
@@ -18,10 +21,20 @@ const CallToAction = () => {
             Get in touch with our team to discover how Byteify's innovative AI solutions can drive growth, efficiency, and competitive advantage for your organization.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" variant="primary" className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light">
+            <Button 
+              size="lg" 
+              variant="primary" 
+              className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light"
+              onClick={() => navigate('/demo-schedule')}
+            >
               Schedule a Demo
             </Button>
-            <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white/30 text-white hover:bg-white/10"
+              onClick={() => navigate('/sales-contact')}
+            >
               Contact Sales
             </Button>
           </div>

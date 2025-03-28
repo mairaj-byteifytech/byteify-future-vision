@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, MapPin } from 'lucide-react';
 import { Button } from '../../components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const jobOpenings = [
   {
@@ -69,12 +70,17 @@ const locations = ['All', 'San Francisco', 'New York', 'London', 'Berlin', 'Sing
 const JobOpenings = () => {
   const [selectedDepartment, setSelectedDepartment] = useState('All');
   const [selectedLocation, setSelectedLocation] = useState('All');
+  const navigate = useNavigate();
 
   const filteredJobs = jobOpenings.filter(job => {
     if (selectedDepartment !== 'All' && job.department !== selectedDepartment) return false;
     if (selectedLocation !== 'All' && job.location !== selectedLocation) return false;
     return true;
   });
+
+  const handleApplyNow = (jobTitle) => {
+    navigate('/job-application', { state: { jobTitle } });
+  };
 
   return (
     <section className="section-padding bg-gray-50">
@@ -155,7 +161,10 @@ const JobOpenings = () => {
                       <p className="text-byteify-gray mb-4">{job.description}</p>
                     </div>
                     
-                    <Button className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light whitespace-nowrap">
+                    <Button 
+                      className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light whitespace-nowrap"
+                      onClick={() => handleApplyNow(job.title)}
+                    >
                       Apply Now
                     </Button>
                   </div>

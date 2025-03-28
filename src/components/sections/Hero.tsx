@@ -1,8 +1,11 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Button } from '../ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
   
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -27,6 +30,13 @@ const Hero = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+  
+  const scrollToSolutions = () => {
+    const solutionsSection = document.getElementById('solutions');
+    if (solutionsSection) {
+      solutionsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
   return (
     <section className="min-h-screen w-full flex items-center pt-20 overflow-hidden relative bg-white" ref={heroRef}>
@@ -55,10 +65,18 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" withArrow>
+              <Button 
+                size="lg" 
+                withArrow
+                onClick={scrollToSolutions}
+              >
                 Explore AI Innovations
               </Button>
-              <Button size="lg" variant="outline">
+              <Button 
+                size="lg" 
+                variant="outline"
+                onClick={() => navigate('/contact')}
+              >
                 Talk to an Expert
               </Button>
             </div>
