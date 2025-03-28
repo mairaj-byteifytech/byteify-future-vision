@@ -32,16 +32,9 @@ const CareersCTA = () => {
             size="lg" 
             variant="outline" 
             className="border-white/30 text-white hover:bg-white/10"
-            onClick={() => {
-              const teamSection = document.querySelector('#team-section');
-              if (teamSection) {
-                teamSection.scrollIntoView({ behavior: 'smooth' });
-              } else {
-                navigate('/about');
-              }
-            }}
+            onClick={() => navigate('/join-our-team')}
           >
-            Meet the Team
+            Join Our Team
           </Button>
         </div>
       </div>

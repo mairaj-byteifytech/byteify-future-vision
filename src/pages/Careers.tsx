@@ -9,8 +9,12 @@ import CompanyBenefits from '../components/careers/CompanyBenefits';
 import JobOpenings from '../components/careers/JobOpenings';
 import HiringProcess from '../components/careers/HiringProcess';
 import CareersCTA from '../components/careers/CareersCTA';
+import { Button } from '../components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const Careers = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -20,6 +24,19 @@ const Careers = () => {
         <CompanyValues />
         <TeamMembers />
         <CompanyBenefits />
+        <div className="byteify-container py-12 text-center">
+          <h2 className="text-2xl font-bold mb-6">Ready to Join Our Team?</h2>
+          <p className="text-byteify-gray mb-8 max-w-2xl mx-auto">
+            We're always looking for talented individuals to join our team. Submit your application today!
+          </p>
+          <Button 
+            size="lg" 
+            className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light"
+            onClick={() => navigate('/join-our-team')}
+          >
+            Apply Now
+          </Button>
+        </div>
         <JobOpenings />
         <HiringProcess />
         <CareersCTA />

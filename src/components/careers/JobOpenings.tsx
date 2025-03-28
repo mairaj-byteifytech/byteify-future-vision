@@ -9,7 +9,7 @@ const jobOpenings = [
   {
     title: 'Senior AI Engineer',
     department: 'Engineering',
-    location: 'San Francisco',
+    location: 'Karachi, Pakistan',
     type: 'Full-time',
     description: 'Join our AI team to develop cutting-edge machine learning models and implement intelligent solutions for our clients.',
   },
@@ -23,35 +23,35 @@ const jobOpenings = [
   {
     title: 'UI/UX Designer',
     department: 'Design',
-    location: 'New York',
+    location: 'Karachi, Pakistan',
     type: 'Full-time',
     description: 'Create intuitive, engaging user experiences for our AI-powered applications and enterprise solutions.',
   },
   {
     title: 'Product Manager',
     department: 'Product',
-    location: 'London',
+    location: 'Karachi, Pakistan',
     type: 'Full-time',
     description: 'Lead the development of innovative products from conception to launch, working closely with engineering and design teams.',
   },
   {
     title: 'Machine Learning Researcher',
     department: 'AI Research',
-    location: 'San Francisco',
+    location: 'Karachi, Pakistan',
     type: 'Full-time',
     description: 'Conduct research on advanced AI techniques and develop algorithms to solve complex business problems.',
   },
   {
     title: 'DevOps Engineer',
     department: 'Engineering',
-    location: 'Berlin',
+    location: 'Remote',
     type: 'Full-time',
     description: 'Build and maintain our cloud infrastructure, ensuring reliability, security, and performance.',
   },
   {
     title: 'Sales Development Representative',
     department: 'Sales',
-    location: 'Singapore',
+    location: 'Karachi, Pakistan',
     type: 'Full-time',
     description: 'Drive business growth by identifying and qualifying new sales opportunities for our AI and software solutions.',
   },
@@ -65,7 +65,7 @@ const jobOpenings = [
 ];
 
 const departments = ['All', 'Engineering', 'AI Research', 'Product', 'Design', 'Marketing', 'Sales', 'Operations'];
-const locations = ['All', 'San Francisco', 'New York', 'London', 'Berlin', 'Singapore', 'Remote'];
+const locations = ['All', 'Karachi, Pakistan', 'Remote'];
 
 const JobOpenings = () => {
   const [selectedDepartment, setSelectedDepartment] = useState('All');
@@ -79,7 +79,7 @@ const JobOpenings = () => {
   });
 
   const handleApplyNow = (jobTitle) => {
-    navigate('/job-application', { state: { jobTitle } });
+    navigate('/join-our-team', { state: { preselectedPosition: jobTitle } });
   };
 
   return (
@@ -176,6 +176,18 @@ const JobOpenings = () => {
               <p className="text-lg text-byteify-gray">No positions matching your criteria. Please try different filters.</p>
             </div>
           )}
+        </div>
+
+        {/* General application CTA */}
+        <div className="mt-12 text-center">
+          <p className="text-byteify-gray mb-6">Don't see a position that matches your skills? Submit a general application and we'll keep your resume on file.</p>
+          <Button 
+            className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light"
+            onClick={() => navigate('/join-our-team')}
+            size="lg"
+          >
+            Submit General Application
+          </Button>
         </div>
       </div>
     </section>

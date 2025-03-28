@@ -25,15 +25,24 @@ const CareersHero = () => {
           <p className="text-xl md:text-2xl mb-10 text-white/80">
             Build the future of AI and software solutions with talented individuals from around the world.
           </p>
-          <Button 
-            size="lg" 
-            variant="primary"
-
-            className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light"
-            onClick={scrollToJobOpenings}
-          >
-            View Open Positions
-          </Button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button 
+              size="lg" 
+              variant="primary"
+              className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light"
+              onClick={scrollToJobOpenings}
+            >
+              View Open Positions
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="border-white/30 text-white hover:bg-white/10"
+              onClick={() => navigate('/join-our-team')}
+            >
+              Submit Your Application
+            </Button>
+          </div>
         </div>
       </div>
     </section>

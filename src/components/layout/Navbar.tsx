@@ -35,7 +35,7 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-byteify-dark'
       }`}
     >
       <div className="byteify-container">
@@ -46,7 +46,7 @@ const Navbar = () => {
               <div className="absolute top-0 left-0 w-3 h-3 bg-byteify-accent rounded-sm animate-pulse-subtle"></div>
               <div className="absolute bottom-0 right-0 w-5 h-5 bg-byteify-accent rounded-full animate-pulse-subtle" style={{ animationDelay: '0.5s' }}></div>
             </div>
-            <span className="text-xl font-bold">Byteify</span>
+            <span className={`text-xl font-bold ${isScrolled ? 'text-byteify-dark' : 'text-white'}`}>Byteify</span>
           </Link>
           
           {/* Desktop Navigation */}
@@ -57,8 +57,8 @@ const Navbar = () => {
                 to={link.href}
                 className={`text-sm font-medium px-1 py-2 ${
                   isActive(link.href) 
-                    ? 'text-byteify-accent-dark font-bold border-b-2 border-byteify-accent' 
-                    : 'text-gray-800 hover:text-byteify-accent-dark hover:border-b-2 hover:border-byteify-accent transition-all duration-300'
+                    ? `${isScrolled ? 'text-byteify-accent-dark' : 'text-byteify-accent'} font-bold border-b-2 border-byteify-accent` 
+                    : `${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-byteify-accent hover:border-b-2 hover:border-byteify-accent transition-all duration-300`
                 }`}
               >
                 {link.name}
@@ -83,9 +83,9 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className={`h-6 w-6 ${isScrolled ? 'text-byteify-dark' : 'text-white'}`} />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className={`h-6 w-6 ${isScrolled ? 'text-byteify-dark' : 'text-white'}`} />
             )}
           </button>
         </div>

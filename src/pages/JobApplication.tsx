@@ -29,35 +29,23 @@ const JobApplication = () => {
     const formData = new FormData(e.target as HTMLFormElement);
     
     try {
-      // Simulate email sending to info@byteify.technology with resume attachment
-      console.log('Sending job application to info@byteify.technology', {
-        formData: Object.fromEntries(formData),
+      // Log application data
+      const applicationData = {
+        jobTitle,
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        linkedin: formData.get('linkedin'),
+        coverLetter: formData.get('coverLetter'),
         resume: resume ? resume.name : 'No resume uploaded',
-        position: jobTitle
-      });
+      };
       
-      // In a real application, you would use an email API that supports file attachments
-      // Example with FormData and fetch:
-      /*
-      const emailFormData = new FormData();
-      emailFormData.append('to', 'info@byteify.technology');
-      emailFormData.append('subject', `Job Application: ${jobTitle}`);
-      emailFormData.append('name', `${formData.get('firstName')} ${formData.get('lastName')}`);
-      emailFormData.append('email', formData.get('email') as string);
-      emailFormData.append('phone', formData.get('phone') as string);
-      emailFormData.append('linkedin', formData.get('linkedin') as string);
-      emailFormData.append('coverLetter', formData.get('coverLetter') as string);
-      if (resume) {
-        emailFormData.append('resume', resume);
-      }
-
-      const response = await fetch('https://your-email-api-endpoint.com', {
-        method: 'POST',
-        body: emailFormData
-      });
-      */
+      // Output data for debugging
+      console.log('Sending job application to info@byteify.technology', applicationData);
       
-      // Simulate a delay
+      // In a real implementation, you would send this to your backend/API
+      // Simulate API call with a delay
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       toast({
@@ -149,7 +137,7 @@ const JobApplication = () => {
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Resume</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Resume/CV</label>
                 <div 
                   className="border-dashed border-2 border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:bg-gray-50 transition"
                   onClick={() => document.getElementById('resume')?.click()}
@@ -180,7 +168,7 @@ const JobApplication = () => {
               
               <Button 
                 type="submit" 
-                className="w-full" 
+                className="w-full bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light" 
                 size="lg"
                 disabled={isSubmitting}
               >
