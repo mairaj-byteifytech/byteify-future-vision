@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import { motion } from 'framer-motion';
@@ -9,37 +8,64 @@ import { useToast } from '../hooks/use-toast';
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const offices = [
     {
-      city: 'San Francisco',
-      address: '123 AI Boulevard, San Francisco, CA 94105',
-      phone: '+1 (415) 555-0123',
-      email: 'sf@byteify.com',
-      hours: 'Mon-Fri: 9AM - 6PM PST'
+      city: 'Karachi',
+      address: 'Karachi, Pakistan',
+      phone: '0322 8208580',
+      email: 'info@byteify.technology',
+      hours: 'Mon-Fri: 9AM - 6PM PKT'
     },
     {
-      city: 'New York',
-      address: '456 Tech Avenue, New York, NY 10001',
-      phone: '+1 (212) 555-0123',
-      email: 'nyc@byteify.com',
-      hours: 'Mon-Fri: 9AM - 6PM EST'
+      city: 'San Francisco',
+      address: '123 AI Boulevard, San Francisco, CA 94105',
+      phone: '0322 8208580',
+      email: 'info@byteify.technology',
+      hours: 'Mon-Fri: 9AM - 6PM PST'
     },
     {
       city: 'London',
       address: '789 Digital Street, London, EC2A 4RR',
-      phone: '+44 20 7123 4567',
-      email: 'london@byteify.com',
+      phone: '0322 8208580',
+      email: 'info@byteify.technology',
       hours: 'Mon-Fri: 9AM - 6PM GMT'
     },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent",
-      description: "Thank you for your message. We'll get back to you shortly.",
-    });
+    setIsSubmitting(true);
+    
+    // Get form data
+    const formData = new FormData(e.target as HTMLFormElement);
+    const formProps = Object.fromEntries(formData);
+    
+    try {
+      // Simulate email sending - in a real application, you would use an email API here
+      console.log('Sending email to info@byteify.technology', formProps);
+      
+      // Simulate a delay to show loading state
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast({
+        title: "Message Sent",
+        description: "Thank you for your message. We'll get back to you shortly.",
+      });
+      
+      // Reset form
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      toast({
+        title: "Failed to send message",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -161,8 +187,8 @@ const Contact = () => {
                       </div>
                       
                       <div>
-                        <Button type="submit" size="lg" className="w-full bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light">
-                          Send Message
+                        <Button type="submit" size="lg" className="w-full bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light" disabled={isSubmitting}>
+                          {isSubmitting ? 'Sending...' : 'Send Message'}
                         </Button>
                       </div>
                     </div>

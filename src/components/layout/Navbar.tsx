@@ -55,10 +55,10 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className={`text-sm font-medium relative transition-colors py-2 px-1 ${
+                className={`text-sm font-medium px-1 py-2 ${
                   isActive(link.href) 
-                    ? 'text-byteify-accent-dark after:content-[""] after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:bg-byteify-accent' 
-                    : 'hover:text-byteify-accent-dark after:content-[""] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-byteify-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left'
+                    ? 'text-byteify-accent-dark font-bold border-b-2 border-byteify-accent' 
+                    : 'hover:text-byteify-accent-dark hover:border-b-2 hover:border-byteify-accent transition-all duration-300'
                 }`}
               >
                 {link.name}
@@ -100,7 +100,7 @@ const Navbar = () => {
                 key={link.name}
                 to={link.href}
                 className={`block py-2 text-base font-medium ${
-                  isActive(link.href) ? 'text-byteify-accent-dark' : 'text-gray-900 hover:text-byteify-accent-dark'
+                  isActive(link.href) ? 'text-byteify-accent-dark font-bold' : 'text-gray-900 hover:text-byteify-accent-dark'
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >

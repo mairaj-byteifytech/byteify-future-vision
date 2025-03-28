@@ -23,7 +23,7 @@ const CallToAction = () => {
           <div className="flex flex-wrap gap-4 justify-center">
             <Button 
               size="lg" 
-              variant="primary" 
+              variant="default" 
               className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light"
               onClick={() => navigate('/demo-schedule')}
             >

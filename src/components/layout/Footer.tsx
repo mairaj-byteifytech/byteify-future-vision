@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
@@ -43,9 +42,9 @@ const Footer = () => {
   ];
   
   const contactInfo = [
-    { icon: Mail, text: 'info@byteify.com' },
-    { icon: Phone, text: '+1 (555) 123-4567' },
-    { icon: MapPin, text: 'San Francisco, CA' },
+    { icon: Mail, text: 'info@byteify.technology' },
+    { icon: Phone, text: '0322 8208580' },
+    { icon: MapPin, text: 'Karachi, Pakistan' },
   ];
   
   return (

@@ -1,13 +1,50 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import { Button } from '../components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '../hooks/use-toast';
 
 const SalesContact = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Get form data
+    const formData = new FormData(e.target as HTMLFormElement);
+    const formProps = Object.fromEntries(formData);
+    
+    try {
+      // Simulate email sending to sales@byteify.technology
+      console.log('Sending sales inquiry to sales@byteify.technology', formProps);
+      
+      // Simulate a delay
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      toast({
+        title: "Message Sent",
+        description: "Thank you for contacting our sales team. We will get back to you shortly.",
+      });
+      
+      // Navigate after successful submission
+      setTimeout(() => navigate('/'), 1500);
+    } catch (error) {
+      console.error('Failed to send sales inquiry:', error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your inquiry. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -27,12 +64,13 @@ const SalesContact = () => {
           <h1 className="text-3xl font-bold mb-6">Contact Sales</h1>
           
           <div className="bg-white rounded-xl shadow-md p-8 max-w-3xl mx-auto">
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
                   <input 
                     type="text" 
+                    name="firstName"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-byteify-accent"
                     required
                   />
@@ -41,6 +79,7 @@ const SalesContact = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
                   <input 
                     type="text" 
+                    name="lastName"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-byteify-accent"
                     required
                   />
@@ -51,6 +90,7 @@ const SalesContact = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
                 <input 
                   type="text" 
+                  name="company"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-byteify-accent"
                   required
                 />
@@ -60,6 +100,7 @@ const SalesContact = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Job Title</label>
                 <input 
                   type="text" 
+                  name="jobTitle"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-byteify-accent"
                   required
                 />
@@ -69,6 +110,7 @@ const SalesContact = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Business Email</label>
                 <input 
                   type="email" 
+                  name="email"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-byteify-accent"
                   required
                 />
@@ -78,6 +120,7 @@ const SalesContact = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
                 <input 
                   type="tel" 
+                  name="phone"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-byteify-accent"
                 />
               </div>
@@ -85,6 +128,7 @@ const SalesContact = () => {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Company Size</label>
                 <select 
+                  name="companySize"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-byteify-accent"
                   required
                 >
@@ -101,6 +145,7 @@ const SalesContact = () => {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">What products are you interested in?</label>
                 <select 
+                  name="interests"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-byteify-accent"
                   required
                 >
@@ -116,6 +161,7 @@ const SalesContact = () => {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
                 <textarea 
+                  name="message"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-byteify-accent min-h-[150px]"
                   placeholder="Tell us about your project or requirements."
                   required
@@ -123,15 +169,12 @@ const SalesContact = () => {
               </div>
               
               <Button 
+                type="submit" 
                 className="w-full" 
                 size="lg"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert('Your message has been sent! Our sales team will contact you shortly.');
-                  navigate('/');
-                }}
+                disabled={isSubmitting}
               >
-                Contact Sales
+                {isSubmitting ? 'Processing...' : 'Contact Sales'}
               </Button>
             </form>
           </div>
