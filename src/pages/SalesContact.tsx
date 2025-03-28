@@ -24,6 +24,28 @@ const SalesContact = () => {
       // Simulate email sending to sales@byteify.technology
       console.log('Sending sales inquiry to sales@byteify.technology', formProps);
       
+      // In a real application, you would use an email API here
+      // Example with fetch:
+      /*
+      const response = await fetch('https://your-email-api-endpoint.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'sales@byteify.technology',
+          subject: `Sales Inquiry: ${formProps.interests}`,
+          message: formProps.message,
+          from: formProps.email,
+          name: `${formProps.firstName} ${formProps.lastName}`,
+          company: formProps.company,
+          jobTitle: formProps.jobTitle,
+          phone: formProps.phone,
+          companySize: formProps.companySize
+        }),
+      });
+      */
+      
       // Simulate a delay
       await new Promise(resolve => setTimeout(resolve, 1500));
       

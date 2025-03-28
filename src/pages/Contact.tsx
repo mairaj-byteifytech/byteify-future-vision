@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
@@ -43,10 +44,28 @@ const Contact = () => {
     const formProps = Object.fromEntries(formData);
     
     try {
-      // Simulate email sending - in a real application, you would use an email API here
+      // Simulate email sending to info@byteify.technology
       console.log('Sending email to info@byteify.technology', formProps);
       
-      // Simulate a delay to show loading state
+      // In a real application, you would use an email API here
+      // Example with fetch:
+      /*
+      const response = await fetch('https://your-email-api-endpoint.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'info@byteify.technology',
+          subject: formProps.subject,
+          message: formProps.message,
+          from: formProps.email,
+          name: `${formProps.firstName} ${formProps.lastName}`,
+          company: formProps.company
+        }),
+      });
+      */
+      
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       toast({

@@ -58,7 +58,7 @@ const Navbar = () => {
                 className={`text-sm font-medium px-1 py-2 ${
                   isActive(link.href) 
                     ? 'text-byteify-accent-dark font-bold border-b-2 border-byteify-accent' 
-                    : 'hover:text-byteify-accent-dark hover:border-b-2 hover:border-byteify-accent transition-all duration-300'
+                    : 'text-gray-800 hover:text-byteify-accent-dark hover:border-b-2 hover:border-byteify-accent transition-all duration-300'
                 }`}
               >
                 {link.name}

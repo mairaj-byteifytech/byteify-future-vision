@@ -24,6 +24,27 @@ const DemoSchedule = () => {
       // Simulate email sending to info@byteify.technology
       console.log('Sending demo request to info@byteify.technology', formProps);
       
+      // In a real application, you would use an email API here
+      // Example with fetch:
+      /*
+      const response = await fetch('https://your-email-api-endpoint.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'info@byteify.technology',
+          subject: `Demo Request: ${formProps.interests}`,
+          message: formProps.additionalInfo,
+          from: formProps.email,
+          name: `${formProps.firstName} ${formProps.lastName}`,
+          company: formProps.company,
+          phone: formProps.phone,
+          demoDate: formProps.demoDate
+        }),
+      });
+      */
+      
       // Simulate a delay
       await new Promise(resolve => setTimeout(resolve, 1500));
       

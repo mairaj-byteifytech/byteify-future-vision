@@ -32,8 +32,30 @@ const JobApplication = () => {
       // Simulate email sending to info@byteify.technology with resume attachment
       console.log('Sending job application to info@byteify.technology', {
         formData: Object.fromEntries(formData),
-        resume: resume ? resume.name : 'No resume uploaded'
+        resume: resume ? resume.name : 'No resume uploaded',
+        position: jobTitle
       });
+      
+      // In a real application, you would use an email API that supports file attachments
+      // Example with FormData and fetch:
+      /*
+      const emailFormData = new FormData();
+      emailFormData.append('to', 'info@byteify.technology');
+      emailFormData.append('subject', `Job Application: ${jobTitle}`);
+      emailFormData.append('name', `${formData.get('firstName')} ${formData.get('lastName')}`);
+      emailFormData.append('email', formData.get('email') as string);
+      emailFormData.append('phone', formData.get('phone') as string);
+      emailFormData.append('linkedin', formData.get('linkedin') as string);
+      emailFormData.append('coverLetter', formData.get('coverLetter') as string);
+      if (resume) {
+        emailFormData.append('resume', resume);
+      }
+
+      const response = await fetch('https://your-email-api-endpoint.com', {
+        method: 'POST',
+        body: emailFormData
+      });
+      */
       
       // Simulate a delay
       await new Promise(resolve => setTimeout(resolve, 1500));
