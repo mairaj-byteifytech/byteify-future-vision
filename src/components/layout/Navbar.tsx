@@ -27,6 +27,7 @@ const Navbar = () => {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
+    { name: 'Team', href: '/team' },
     { name: 'Careers', href: '/careers' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
@@ -42,11 +43,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="relative w-8 h-8">
-              <div className="absolute top-0 left-0 w-3 h-3 bg-byteify-accent rounded-sm animate-pulse-subtle"></div>
-              <div className="absolute bottom-0 right-0 w-5 h-5 bg-byteify-accent rounded-full animate-pulse-subtle" style={{ animationDelay: '0.5s' }}></div>
-            </div>
-            <span className={`text-xl font-bold ${isScrolled ? 'text-byteify-dark' : 'text-white'}`}>Byteify</span>
+            <img src="/lovable-uploads/56839c7b-b170-4137-a7d7-603f200c06a2.png" alt="Byteify Logo" className="h-8 w-auto" />
           </Link>
           
           {/* Desktop Navigation */}

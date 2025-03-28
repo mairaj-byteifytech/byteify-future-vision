@@ -15,6 +15,7 @@ import JobApplication from "./pages/JobApplication";
 import DemoSchedule from "./pages/DemoSchedule";
 import SalesContact from "./pages/SalesContact";
 import JoinOurTeam from "./pages/JoinOurTeam";
+import Team from "./pages/Team";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/team" element={<Team />} />
           <Route path="/job-application" element={<JobApplication />} />
           <Route path="/demo-schedule" element={<DemoSchedule />} />
           <Route path="/sales-contact" element={<SalesContact />} />

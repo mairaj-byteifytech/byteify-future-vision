@@ -29,13 +29,22 @@ const Careers = () => {
           <p className="text-byteify-gray mb-8 max-w-2xl mx-auto">
             We're always looking for talented individuals to join our team. Submit your application today!
           </p>
-          <Button 
-            size="lg" 
-            className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light"
-            onClick={() => navigate('/join-our-team')}
-          >
-            Apply Now
-          </Button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button 
+              size="lg" 
+              className="bg-byteify-accent text-byteify-dark hover:bg-byteify-accent-light"
+              onClick={() => navigate('/join-our-team')}
+            >
+              Apply Now
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => navigate('/team')}
+            >
+              Meet Our Team
+            </Button>
+          </div>
         </div>
         <JobOpenings />
         <HiringProcess />
