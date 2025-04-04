@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -7,7 +8,7 @@ import Footer from '../components/layout/Footer';
 const Team = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="bg-gradient-to-r from-byteify-dark to-byteify-darker">
+      <div className="bg-byteify-dark">
         <Navbar />
         
         <section className="pt-20 text-white">

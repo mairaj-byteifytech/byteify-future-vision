@@ -33,6 +33,8 @@ const Navbar = () => {
     { name: 'Contact', href: '/contact' },
   ];
   
+  const isDarkBg = location.pathname === '/' || location.pathname === '/team';
+  
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -59,7 +61,7 @@ const Navbar = () => {
                 className={`text-sm font-medium px-1 py-2 ${
                   isActive(link.href) 
                     ? `${isScrolled ? 'text-byteify-accent-dark' : 'text-byteify-accent'} font-bold border-b-2 border-byteify-accent` 
-                    : `${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-byteify-accent hover:border-b-2 hover:border-byteify-accent transition-all duration-300`
+                    : `${isScrolled ? 'text-gray-800' : isDarkBg ? 'text-white' : 'text-gray-800'} hover:text-byteify-accent hover:border-b-2 hover:border-byteify-accent transition-all duration-300`
                 }`}
               >
                 {link.name}
@@ -84,9 +86,9 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <X className={`h-6 w-6 ${isScrolled ? 'text-byteify-dark' : 'text-white'}`} />
+              <X className={`h-6 w-6 ${isScrolled ? 'text-byteify-dark' : isDarkBg ? 'text-white' : 'text-byteify-dark'}`} />
             ) : (
-              <Menu className={`h-6 w-6 ${isScrolled ? 'text-byteify-dark' : 'text-white'}`} />
+              <Menu className={`h-6 w-6 ${isScrolled ? 'text-byteify-dark' : isDarkBg ? 'text-white' : 'text-byteify-dark'}`} />
             )}
           </button>
         </div>
