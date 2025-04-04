@@ -16,6 +16,7 @@ const Home = () => {
         <Hero />
       </div>
       
+      
       <main className="flex-grow">
         <Solutions />
         <About />
