@@ -10,9 +10,9 @@ const Team = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       
-      <main className="flex-grow pt-24">
+      <main className="flex-grow">
         {/* Hero Section - Updated to match other pages */}
-        <section className="section-padding bg-gradient-to-r from-byteify-dark to-byteify-darker text-white">
+        <section className="section-padding pt-24 bg-gradient-to-r from-byteify-dark to-byteify-darker text-white">
           <div className="byteify-container text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Our Team</h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto text-white/80">
