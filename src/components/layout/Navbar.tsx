@@ -35,8 +35,8 @@ const Navbar = () => {
   
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-0 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-byteify-dark border-0'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent border-0'
       }`}
     >
       <div className="byteify-container">

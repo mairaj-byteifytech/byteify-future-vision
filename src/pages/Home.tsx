@@ -11,10 +11,12 @@ import CallToAction from '../components/sections/CallToAction';
 const Home = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      <div className="bg-byteify-dark">
+        <Navbar />
+        <Hero />
+      </div>
       
       <main className="flex-grow">
-        <Hero />
         <Solutions />
         <About />
         <CaseStudies />
