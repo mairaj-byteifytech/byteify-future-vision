@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../../components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const teamMembers = [
   {
@@ -31,6 +32,8 @@ const teamMembers = [
 ];
 
 const TeamMembers = () => {
+  const navigate = useNavigate();
+  
   return (
     <section className="section-padding bg-gray-50">
       <div className="byteify-container">
@@ -68,7 +71,11 @@ const TeamMembers = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" className="border-byteify-accent text-byteify-dark hover:bg-byteify-accent/10">
+          <Button 
+            variant="outline" 
+            className="border-byteify-accent text-byteify-dark hover:bg-byteify-accent/10"
+            onClick={() => navigate('/team')}
+          >
             View Full Team
           </Button>
         </div>

@@ -11,7 +11,7 @@ const Team = () => {
       <Navbar />
       
       <main className="flex-grow pt-24">
-        {/* Hero Section */}
+        {/* Hero Section - Updated to match other pages */}
         <section className="section-padding bg-gradient-to-r from-byteify-dark to-byteify-darker text-white">
           <div className="byteify-container text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Our Team</h1>

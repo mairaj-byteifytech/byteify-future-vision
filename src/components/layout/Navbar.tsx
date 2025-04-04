@@ -43,7 +43,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src="/lovable-uploads/56839c7b-b170-4137-a7d7-603f200c06a2.png" alt="Byteify Logo" className="h-8 w-auto" />
+            <img 
+              src="/lovable-uploads/75a1f804-2b57-4760-9d84-2b98bb8a8d21.png" 
+              alt="Byteify Logo" 
+              className="h-8 w-auto" 
+            />
           </Link>
           
           {/* Desktop Navigation */}
